@@ -2,7 +2,7 @@
 
 int main()
 {
-	Server server(7789, 10);
+	Server server(7789, 100);
 	server.start();
 
 	return 0;

@@ -21,11 +21,8 @@ void Server::start()
 		std::cerr << "S : Wait for incoming connection..." << std::endl;
 		acceptor_.accept(*client_socket);
 		std::cerr << "S : Connection established." << std::endl;
-		client_threads_.create_thread(
-				boost::bind(&Server::clientThread, this, client_socket));
+		boost::thread(boost::bind(&Server::clientThread, this, client_socket)).detach();
 	}
-	std::cerr << "S : Halt! Wating connections for close..." << std::endl;
-	client_threads_.join_all();
 	std::cerr << "S : OK.\r\n\tBye!\r\n" << std::endl;
 }
 

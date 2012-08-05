@@ -3,11 +3,11 @@
 #include <string>
 #include <boost/asio.hpp>
 
-int const kNumberOfConnectionsPerClient = 100;
-int const kNumberOfClients = 10;
+int const kNumberOfConnectionsPerClient = 1000;
+int const kNumberOfClients = 100;
 char const kSeparator = '$';
 int const kBufferSize = 16;
-int const kPauseLength = 1000;
+int const kPauseLength = 50;
 
 using boost::asio::ip::tcp;
 

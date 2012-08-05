@@ -11,7 +11,7 @@ using boost::asio::ip::tcp;
 char const kSeparator = '$';
 int const kAnswerBufferSize = 16;
 int const kHaltId = -100;
-int const kUpdatePeriod = 20;
+int const kUpdatePeriod = 5000;
 bool const kSetupStopFlag = true;
 
 class Server
@@ -38,7 +38,6 @@ private:
 	boost::asio::io_service io_service_;
 	tcp::acceptor acceptor_;
 	std::vector<int> connect_counters_;
-	boost::thread_group client_threads_;
 	volatile bool stop_flag_;
 	volatile int global_counter_;
 	boost::mutex mutex_;
